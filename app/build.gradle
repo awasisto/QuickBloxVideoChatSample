@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.quickblox.sample.groupchatwebrtc"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 204
+        versionName "2.0.4-scr-share"
+    }
+    buildTypes {
+        debug {
+            resValue  "string", "versionName", "QuickBlox WebRTC\nBuild version " +  defaultConfig.getVersionName()
+        }
+        release {
+            resValue  "string", "versionName", "QuickBlox WebRTC\nBuild version " +  defaultConfig.getVersionName()
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.android.support:cardview-v7:26.+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:support-annotations:26.+'
+    compile 'com.google.android.gms:play-services-gcm:10.2.1'
+    compile 'com.quickblox:quickblox-android-sdk-messages:3.3.1'
+    compile 'com.quickblox:quickblox-android-sdk-videochat-webrtc:3.3.1'
+    compile 'com.navercorp.pulltorefresh:library:3.2.3@aar'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.johnkil.android-robototextview:robototextview:3.0.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+}
